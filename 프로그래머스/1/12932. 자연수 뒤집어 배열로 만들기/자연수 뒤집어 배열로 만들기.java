@@ -1,21 +1,11 @@
 class Solution {
     public int[] solution(long n) {
-        long num = n;
-        int cnt = 0;
-        
-        while (num != 0) {
-            num/=10;
-            cnt++;
-        }
-        
-        int[] answer = new int[cnt];
-        
-        num = n;
-        
-        for(int i=0; num !=0; i++){
-            answer[i] = (int)(num%10);
-            num /= 10;
-        }
+        String arrStr = Long.toString(n);
+        int[] answer = new int[arrStr.length()];
+ 
+        for(int i=arrStr.length() - 1; i>=0; i--){
+            answer[arrStr.length()-1-i] = arrStr.charAt(i) - '0';
+        }      
         return answer;
     }
 }
